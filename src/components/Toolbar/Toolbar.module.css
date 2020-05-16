@@ -1,0 +1,13 @@
+.Toolbar {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+  
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Nav {
+    display: flex;
+}

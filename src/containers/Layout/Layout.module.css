@@ -1,0 +1,28 @@
+.Layout {
+    height: 100vh; /* for shorter content */
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+
+    /*ie10*/
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+}
+
+.Layout header {
+    height: 75px;
+    width: 100%;
+}
+
+.Layout main {
+    flex: 1;
+  
+    /*ie10*/
+    -ms-flex: 1 1 auto; /*needs both shrink and grow*/
+}
+
+.Layout footer {
+    height: 25px;
+    width: 100%;
+}
