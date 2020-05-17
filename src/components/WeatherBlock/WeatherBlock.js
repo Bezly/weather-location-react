@@ -4,27 +4,24 @@ import axios from "axios"
 import classStyles from "./WeatherBlock.module.css"
 import { connect } from "react-redux"
 
+import {fetchDataStart} from '../../store/actions' 
+
 const WeatherBlock = (props) => {
-  const [weather, setWeather] = useState(null)
 
   useEffect(() => {
-    console.log(props)
-    props.onUpload()
-    axios
-      .get(
-        "https://api.openweathermap.org/data/2.5/weather?q=Riga&appid=89368938e6d0b7f841e535c2e58fa33d"
-      )
-      .then(({ data: data }) => setWeather(data))
-      .catch((e) => console.log(e.message))
-  }, [setWeather])
+    props.uploadData()
+  }, [])
 
+  console.log(props.weather)
+  
   return (
     <div className={classStyles.Block}>
-      {weather && (
+      {props.error || props.loading && 'Loading...'}
+      {props.weather && (
         <div>
-          <h3>WeatherBlock in {weather.name}</h3>
-          <p>{weather.weather[0].main}</p>
-          <p>Temperature now: {(+weather.main.temp - 273.15).toFixed(0)}C</p>
+          <h3>WeatherBlock in {props.weather.name}</h3>
+          <p>{props.weather.weather[0].main}</p>
+          <p>Temperature now: {(+props.weather.main.temp - 273.15).toFixed(0)}C</p>
         </div>
       )}
     </div>
@@ -34,13 +31,15 @@ const WeatherBlock = (props) => {
 
 const mapStateToProps = state => {
   return {
-    weather: state.weatherBlock
+    weather: state.weatherBlock.data,
+    loading: state.weatherBlock.loading,
+    error: state.weatherBlock.error,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onUpload: () => dispatch({type: "FETCH_WEATHER_START"})
+    uploadData: () => dispatch(fetchDataStart())
   }
 }
 
