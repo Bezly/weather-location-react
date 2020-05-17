@@ -1,7 +1,8 @@
 import actionTypes from './actionTypes'
 
 export const fetchDataStart = () => {
-    retunr {
+    debugger
+    return {
         type: actionTypes.FETCH_WEATHER_START
     }
 }
