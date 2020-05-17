@@ -9,7 +9,7 @@ import WeatherBlock from "../../components/WeatherBlock/WeatherBlock"
 
 function App() {
   
-
+  console.log('[Layout]')
   return (
     <Aux>
       <header>

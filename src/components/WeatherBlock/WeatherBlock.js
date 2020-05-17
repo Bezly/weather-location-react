@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
+import React, { useEffect } from "react"
 
 import classStyles from "./WeatherBlock.module.css"
 import { connect } from "react-redux"
@@ -9,10 +8,11 @@ import {fetchDataStart} from '../../store/actions'
 const WeatherBlock = (props) => {
 
   useEffect(() => {
+    console.log('loading')
     props.uploadData()
   }, [])
 
-  console.log(props.weather)
+  console.log('[outside render  ]')
   
   return (
     <div className={classStyles.Block}>
@@ -42,5 +42,6 @@ const mapDispatchToProps = dispatch => {
     uploadData: () => dispatch(fetchDataStart())
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherBlock)
