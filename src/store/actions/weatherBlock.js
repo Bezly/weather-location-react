@@ -4,7 +4,6 @@ import axios from "axios"
 export const fetchDataStart = () => {
   return (dispatch) => {
     dispatch(fetchDataInit())
-    console.log('[actions]')
     // get initial weather location
     // and throw it into
     axios

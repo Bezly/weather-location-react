@@ -1,23 +1,37 @@
-import React from "react"
+import React, { Suspense } from "react"
 
-import classStyles from './Layout.module.css'
+import classStyles from "./Layout.module.css"
 
 import Aux from "../../hoc/Auxliary/Auxliary"
-import withClass from '../../hoc/Auxliary/withClass'
+import withClass from "../../hoc/Auxliary/withClass"
 import Toolbar from "../../components/Toolbar/Toolbar"
 import WeatherBlock from "../../components/WeatherBlock/WeatherBlock"
+import { Route, Switch } from "react-router-dom"
+
+const Login = React.lazy(()=> import('../Auth/Login/Login'))
 
 function App() {
-  
-  console.log('[Layout]')
+  console.log("[Layout]")
   return (
     <Aux>
       <header>
-        <Toolbar/>
+        <Toolbar />
       </header>
       <main>
-        <h1>Weather Locator Application is Live!</h1>
-        <WeatherBlock />
+        <Switch>
+          <Route path="/" exact>
+            <h1>Weather Locator Application is Live!</h1>
+            <WeatherBlock />
+          </Route>
+          <Route path="/login">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Login />
+            </Suspense>
+          </Route>
+          <Route path="/registration">
+            <h1>Registration is here</h1>
+          </Route>
+        </Switch>
       </main>
       <footer>footer</footer>
     </Aux>

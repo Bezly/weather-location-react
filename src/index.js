@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { BrowserRouter as Router } from "react-router-dom"
 import { createStore, applyMiddleware, compose, combineReducers } from "redux"
 import reducerWeatherBlock from "./store/reducers/weatherBlock"
 import { Provider } from "react-redux"
@@ -26,9 +27,11 @@ const rootStore = createStore(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={rootStore}>
-      <Layout />
-    </Provider>
+    <Router>
+      <Provider store={rootStore}>
+        <Layout />
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 )

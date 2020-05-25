@@ -8,11 +8,9 @@ import {fetchDataStart} from '../../store/actions'
 const WeatherBlock = (props) => {
 
   useEffect(() => {
-    console.log('loading')
     props.uploadData()
   }, [])
 
-  console.log('[outside render  ]')
   
   return (
     <div className={classStyles.Block}>

@@ -9,7 +9,6 @@ const initialState = {
 const reducer = (state=initialState, action) => {
     switch(action.type){
         case actionTypes.FETCH_WEATHER_REQUEST: {
-            console.log('START reducer')
             return {
                 ...state, 
                 loading: true,
@@ -17,7 +16,6 @@ const reducer = (state=initialState, action) => {
             }
         }
         case actionTypes.FETCH_WEATHER_SUCCESS: {
-            console.log('SUCCESS reducer')
             return {
                 ...state,
                 data: action.payload.data,
@@ -26,7 +24,6 @@ const reducer = (state=initialState, action) => {
             }
         }
         case actionTypes.FETCH_WEATHER_FAILURE: {
-            console.log('FAILURE reducer')
             return {
                 ...state,
                 data: null,
