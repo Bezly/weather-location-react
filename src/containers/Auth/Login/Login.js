@@ -12,14 +12,17 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
+import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Weather Scanner 0602
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -29,7 +32,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: '40vh',
   },
   image: {
     backgroundImage: 'url(https://source.unsplash.com/random)',
@@ -62,10 +65,9 @@ export default function SignInSide() {
   const classes = useStyles();
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -116,9 +118,9 @@ export default function SignInSide() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <NavLink href="#" to="/registration" variant="body2">
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </NavLink>
               </Grid>
             </Grid>
             <Box mt={5}>
@@ -126,7 +128,6 @@ export default function SignInSide() {
             </Box>
           </form>
         </div>
-      </Grid>
-    </Grid>
+    </Container>
   );
 }

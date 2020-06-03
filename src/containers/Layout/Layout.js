@@ -8,7 +8,8 @@ import Toolbar from "../../components/Toolbar/Toolbar"
 import WeatherBlock from "../../components/WeatherBlock/WeatherBlock"
 import { Route, Switch } from "react-router-dom"
 
-const Login = React.lazy(()=> import('../Auth/Login/Login'))
+const Login = React.lazy(() => import("../Auth/Login/Login"))
+const Registration = React.lazy(() => import("../Auth/Registration/Registration"))
 
 function App() {
   console.log("[Layout]")
@@ -29,7 +30,9 @@ function App() {
             </Suspense>
           </Route>
           <Route path="/registration">
-            <h1>Registration is here</h1>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Registration />
+            </Suspense>
           </Route>
         </Switch>
       </main>
