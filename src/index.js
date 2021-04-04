@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import { BrowserRouter as Router } from "react-router-dom"
 import { createStore, applyMiddleware, compose, combineReducers } from "redux"
 import reducerWeatherBlock from "./store/reducers/weatherBlock"
+import reducerLogin from './store/reducers/login'
 import { Provider } from "react-redux"
 import thunk from "redux-thunk"
 
@@ -18,6 +19,7 @@ const composeEnhancers =
 //reducers collection
 const rootReducer = combineReducers({
   weatherBlock: reducerWeatherBlock,
+  login: reducerLogin,
 })
 
 const rootStore = createStore(
